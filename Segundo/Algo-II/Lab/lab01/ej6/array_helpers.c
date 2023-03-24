@@ -40,3 +40,9 @@ bool array_is_sorted(int a[], unsigned int length) {
   }
   return res;
 }
+
+void array_swap(int a[], unsigned int i, unsigned int j) {
+  int tmp = a[i];
+  a[i] = a[j];
+  a[j] = tmp;
+}

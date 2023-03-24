@@ -1,8 +1,8 @@
-#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "array_helpers.h"
+#include "mybool.h"
 
 unsigned int array_from_file(int array[], unsigned int max_size,
                              const char *filepath) {
@@ -29,9 +29,9 @@ void array_dump(int a[], unsigned int length) {
   printf("]\n");
 }
 
-bool array_is_sorted(int a[], unsigned int length) {
+mybool array_is_sorted(int a[], unsigned int length) {
   unsigned int i = 0;
-  bool res = true;
+  mybool res = true;
   while (i < length - 1 && res) {
     if (a[i] > a[i + 1]) {
       res = false;
