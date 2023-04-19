@@ -25,10 +25,11 @@ void selection_sort(int a[], unsigned int length) {
 }
 
 static void insert(int a[], unsigned int i) {
-  for (unsigned int j = i; j > 0; j--)
-    if (goes_before(a[j], a[j - 1])) {
+  unsigned j = i;
+  while (j > 0 && goes_before(a[j], a[j - 1])) {
       swap(a, j - 1, j);
-    }
+     j--;
+  }
 }
 
 void insertion_sort(int a[], unsigned int length) {

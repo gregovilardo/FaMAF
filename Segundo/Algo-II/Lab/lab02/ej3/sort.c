@@ -16,7 +16,7 @@ static unsigned int partition(int a[], unsigned int izq, unsigned int der) {
       i++;
     } else if (goes_before(a[pivot], a[j])) {
       j--;
-    } else if (goes_before(a[pivot], a[i]) && goes_before(a[j], a[pivot])) {
+    } else if (!goes_before(a[i], a[pivot]) && !goes_before(a[pivot], a[j])) {
       swap(a, i, j);
       i++;
       j--;
