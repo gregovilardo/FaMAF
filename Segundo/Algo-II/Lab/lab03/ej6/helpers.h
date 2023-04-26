@@ -4,8 +4,8 @@
 */
 #ifndef _HELPERS_H
 #define _HELPERS_H
-#include <stdbool.h>
 #include "player.h"
+#include <stdbool.h>
 
 /**
  * @brief Return whether the array 'other' is a permutation of the array 'a'
@@ -17,10 +17,11 @@
  *
  * @return true is 'a' is permutation of 'other', false otherwise
  */
-bool array_is_permutation_of(player_t a[], player_t other[], unsigned int length);
+bool array_is_permutation_of(player_t a[], player_t other[],
+                             unsigned int length);
 
 /**
- * @brief Copy the array 'src' into the array 'dst' 
+ * @brief Copy the array 'src' into the array 'dst'
  *
  * @param[in]      dst     The destination
  * @param[in]      src     The source
@@ -28,10 +29,9 @@ bool array_is_permutation_of(player_t a[], player_t other[], unsigned int length
  */
 void array_copy(player_t dst[], player_t src[], unsigned int length);
 
-
 /**
  * @brief Loads the contents of the file into the array of players.
- *        NOTE: this method reserves memory for each player element. 
+ *        NOTE: this method reserves memory for each player element.
  *        The caller is responsible for free these memory.
  *
  * @param[in]  filepath  Filepath to player atp file
@@ -56,5 +56,9 @@ void atp_dump(player_t atp[], unsigned int length);
  * @param[in]  length  Length of player pointer array
  */
 void destroy(player_t atp[], unsigned int length);
+
+bool goes_before(player_t x, player_t y);
+
+void swap(player_t a[], unsigned int i, unsigned int j);
 
 #endif

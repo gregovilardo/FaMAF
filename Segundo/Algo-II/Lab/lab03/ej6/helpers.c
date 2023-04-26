@@ -139,3 +139,17 @@ void destroy(player_t atp[], unsigned int length) {
         atp[i] = NULL;
     }
 }
+
+bool goes_before(player_t x, player_t y) {
+  if (x->rank > y->rank) {
+    return false;
+  }
+  return true;
+}
+
+void swap(player_t a[], unsigned int i, unsigned int j) {
+  player_t tmp = a[i];
+  a[i] = a[j];
+  a[j] = tmp;
+}
+

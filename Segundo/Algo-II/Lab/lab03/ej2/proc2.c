@@ -16,3 +16,6 @@ int main(void) {
   printf("%d\n", res);
   return EXIT_SUCCESS;
 }
+
+/* El parametro int *y es de tipo in/out
+Tiene disponibles los 3 tipos */

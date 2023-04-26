@@ -47,4 +47,8 @@ unsigned int process_file(const char *filepath, player_t atp[]);
  */
 void atp_dump(player_t atp[], unsigned int length);
 
+bool goes_before(player_t x, player_t y);
+
+void swap(player_t a[], unsigned int i, unsigned int j);
+
 #endif

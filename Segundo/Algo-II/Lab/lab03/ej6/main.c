@@ -78,6 +78,7 @@ int main(int argc, char *argv[]) {
     /* create a copy of the array, to do some checks later */
     player_t copy[MAX_PLAYERS];
     array_copy(copy, atp, length);
+    sort(atp, length);
 
     /* enable statistics for cpu utilization */
     {
