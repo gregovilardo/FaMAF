@@ -1,0 +1,16 @@
+before: [ 7, 4, 1, 3, 9, 3, 5]
+este es p: 0x7ffdff8e50e0
+0x7ffdff8e50e0
+este es p: 0x7ffdff8e50e0
+0x7ffdff8e50e4
+este es p: 0x7ffdff8e50e0
+0x7ffdff8e50e8
+este es p: 0x7ffdff8e50e0
+0x7ffdff8e50ec
+este es p: 0x7ffdff8e50e0
+0x7ffdff8e50f0
+este es p: 0x7ffdff8e50e0
+0x7ffdff8e50f4
+este es p: 0x7ffdff8e50e0
+0x7ffdff8e50f8
+after : [ 0, 0, 0, 0, 0, 0, 0]
