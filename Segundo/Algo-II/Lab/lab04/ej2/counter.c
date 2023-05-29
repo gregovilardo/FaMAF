@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <stdbool.h>
 #include <stdlib.h>
 
@@ -12,30 +13,19 @@ counter counter_init(void) {
   c = malloc(sizeof(counter));
   c->count = 0;
   return c;
-/*
-    Needs implementation.
-*/
 }
 
 void counter_inc(counter c) {
   c->count += 1;
-/*
-    Needs implementation.
-*/
 }
 
 bool counter_is_init(counter c) {
-  return c == 0;
-/*
-    Needs implementation.
-*/
+  return c->count == 0;
 }
 
 void counter_dec(counter c) {
+  assert(!counter_is_init(c));
   c->count -= 1;
-/*
-    Needs implementation.
-*/
 }
 
 counter counter_copy(counter c) {
@@ -43,15 +33,9 @@ counter counter_copy(counter c) {
   cc = malloc(sizeof(counter));
   cc->count = c->count;
   return cc;
-/*
-    Needs implementation.
-*/
 }
 
 void counter_destroy(counter c) {
   free(c);
   c = NULL;
-/*
-   Needs implementation.
-*/
 }

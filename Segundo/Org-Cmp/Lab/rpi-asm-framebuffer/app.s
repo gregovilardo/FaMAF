@@ -29,6 +29,13 @@ loop0:
 	cbnz x2,loop1  // Si no es la última fila, salto
 
   
+ //rectangulo grande del medio 
+//  mov x11, 120// X Position
+//  mov x12, 240  // Y position
+//	mov x1, 400// X Size
+//	mov x2, 120// Y Size
+//  BL rectangle
+
 
 //STAR RECTRIANGLE
   sub sp, sp, 32
@@ -36,19 +43,21 @@ loop0:
   stur x4, [sp,16]
   stur x5, [sp, 8]
   stur x6, [sp, 0]
-  mov x3, 16 // cantidad de iteraciones para el triangulo
-  mov x4, SCREEN_HEIGH-160
-  mov x5, 320-SCREEN_WIDTH/4 //160
-  mov x6, SCREEN_WIDTH/2
+  mov x3, 4 // cantidad de iteraciones para el triangulo
+  mov x4, 120
+  mov x5, 200
+  mov x6, 400
+  mov x7, 120
 rectriangle: 
-  mov x11, x5// X Position
-  mov x12, x4  // Y position
-	mov x1, x6// X Size
-	mov x2, 15// Y Size
+  mov x11, x4  // X Position
+  mov x12, x5  // Y position
+	mov x1, x6   // X Size
+	mov x2, x7   // Y Size
   BL rectangle
-  sub x4, x4, 15
-  add x5, x5, 10
-  sub x6, x6, 20
+  add x4, x4, 40
+  sub x5, x5, 40
+  sub x6, x6, 80
+  add x7, x7, 80
   sub x3, x3, 1
   cbnz x3, rectriangle
   ldur x3, [sp,32]

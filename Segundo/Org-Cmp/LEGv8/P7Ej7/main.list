@@ -1,0 +1,146 @@
+
+main.elf:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+0000000000000000 <oLoop-0x14>:
+   0:	58000280 	ldr	x0, 50 <oEnd>
+   4:	580002a9 	ldr	x9, 58 <N>
+   8:	8b1f03e1 	add	x1, xzr, xzr
+   c:	8b1f03e2 	add	x2, xzr, xzr
+  10:	8b1f03e3 	add	x3, xzr, xzr
+
+0000000000000014 <oLoop>:
+  14:	eb09005f 	cmp	x2, x9
+  18:	540001c0 	b.eq	50 <oEnd>  // b.none
+  1c:	8b1f03e3 	add	x3, xzr, xzr
+
+0000000000000020 <iLoop>:
+  20:	eb09007f 	cmp	x3, x9
+  24:	54000120 	b.eq	48 <iEnd>  // b.none
+  28:	9b097c4c 	mul	x12, x2, x9
+  2c:	8b03018c 	add	x12, x12, x3
+  30:	d37df18c 	lsl	x12, x12, #3
+  34:	8b00018c 	add	x12, x12, x0
+  38:	f840018b 	ldur	x11, [x12]
+  3c:	8b0b0021 	add	x1, x1, x11
+  40:	91000463 	add	x3, x3, #0x1
+  44:	17fffff7 	b	20 <iLoop>
+
+0000000000000048 <iEnd>:
+  48:	91000442 	add	x2, x2, #0x1
+  4c:	17fffff2 	b	14 <oLoop>
+
+0000000000000050 <oEnd>:
+  50:	00000060 	udf	#96
+  54:	00000000 	udf	#0
+
+Disassembly of section .data:
+
+0000000000000058 <N>:
+  58:	00000003 	udf	#3
+  5c:	00000000 	udf	#0
+
+0000000000000060 <A>:
+  60:	00000001 	udf	#1
+  64:	00000000 	udf	#0
+  68:	00000007 	udf	#7
+  6c:	00000000 	udf	#0
+  70:	00000002 	udf	#2
+  74:	00000000 	udf	#0
+  78:	0000002c 	udf	#44
+  7c:	00000000 	udf	#0
+  80:	00000003 	udf	#3
+  84:	00000000 	udf	#0
+  88:	00000015 	udf	#21
+  8c:	00000000 	udf	#0
+  90:	00000001 	udf	#1
+  94:	00000000 	udf	#0
+  98:	00000002 	udf	#2
+  9c:	00000000 	udf	#0
+  a0:	00000003 	udf	#3
+  a4:	00000000 	udf	#0
+
+Disassembly of section .debug_line:
+
+0000000000000000 <.debug_line>:
+   0:	00000047 	udf	#71
+   4:	001d0003 	.inst	0x001d0003 ; undefined
+   8:	01040000 	.inst	0x01040000 ; undefined
+   c:	000d0efb 	.inst	0x000d0efb ; undefined
+  10:	01010101 	.inst	0x01010101 ; undefined
+  14:	01000000 	.inst	0x01000000 ; undefined
+  18:	00010000 	.inst	0x00010000 ; undefined
+  1c:	6e69616d 	rsubhn2	v13.8h, v11.4s, v9.4s
+  20:	0000732e 	udf	#29486
+  24:	00000000 	udf	#0
+  28:	00000209 	udf	#521
+  2c:	00000000 	udf	#0
+  30:	21160000 	.inst	0x21160000 ; undefined
+  34:	21212121 	.inst	0x21212121 ; undefined
+  38:	21212121 	.inst	0x21212121 ; undefined
+  3c:	21212121 	.inst	0x21212121 ; undefined
+  40:	21212121 	.inst	0x21212121 ; undefined
+  44:	03022121 	.inst	0x03022121 ; undefined
+  48:	Address 0x48 is out of bounds.
+
+
+Disassembly of section .debug_info:
+
+0000000000000000 <.debug_info>:
+   0:	0000002a 	udf	#42
+   4:	00000002 	udf	#2
+   8:	01080000 	.inst	0x01080000 ; undefined
+	...
+  18:	00000058 	udf	#88
+	...
+  24:	00000007 	udf	#7
+  28:	00000046 	udf	#70
+  2c:	Address 0x2c is out of bounds.
+
+
+Disassembly of section .debug_abbrev:
+
+0000000000000000 <.debug_abbrev>:
+   0:	10001101 	adr	x1, 220 <A+0x1c0>
+   4:	12011106 	and	w6, w8, #0x8000000f
+   8:	1b0e0301 	madd	w1, w24, w14, w0
+   c:	130e250e 	sbfiz	w14, w8, #18, #10
+  10:	00000005 	udf	#5
+
+Disassembly of section .debug_aranges:
+
+0000000000000000 <.debug_aranges>:
+   0:	0000002c 	udf	#44
+   4:	00000002 	udf	#2
+   8:	00080000 	.inst	0x00080000 ; undefined
+	...
+  18:	00000058 	udf	#88
+	...
+
+Disassembly of section .debug_str:
+
+0000000000000000 <.debug_str>:
+   0:	6e69616d 	rsubhn2	v13.8h, v11.4s, v9.4s
+   4:	2f00732e 	.inst	0x2f00732e ; undefined
+   8:	656d6f68 	fnmls	z8.h, p3/m, z27.h, z13.h
+   c:	6572672f 	fnmls	z15.h, p1/m, z25.h, z18.h
+  10:	69766f67 	ldpsw	x7, x27, [x27, #-80]
+  14:	6472616c 	.inst	0x6472616c ; undefined
+  18:	6f442f6f 	.inst	0x6f442f6f ; undefined
+  1c:	656d7563 	fnmls	z3.h, p5/m, z11.h, z13.h
+  20:	2f73746e 	.inst	0x2f73746e ; undefined
+  24:	414d6146 	.inst	0x414d6146 ; undefined
+  28:	65532f46 	fcmne	p6.h, p3/z, z26.h, #0.0
+  2c:	646e7567 	.inst	0x646e7567 ; undefined
+  30:	724f2f6f 	.inst	0x724f2f6f ; undefined
+  34:	6d432d67 	ldp	d7, d11, [x11, #48]
+  38:	454c2f70 	.inst	0x454c2f70 ; undefined
+  3c:	2f387647 	uqshl	v7.2s, v18.2s, #24
+  40:	6a453750 	ands	w16, w26, w5, lsr #13
+  44:	4e470037 	.inst	0x4e470037 ; undefined
+  48:	53412055 	.inst	0x53412055 ; undefined
+  4c:	342e3220 	cbz	w0, 5c690 <A+0x5c630>
+  50:	Address 0x50 is out of bounds.
+

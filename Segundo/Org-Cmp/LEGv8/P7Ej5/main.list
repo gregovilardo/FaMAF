@@ -1,0 +1,121 @@
+
+main.elf:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+0000000000000000 <loop-0x4>:
+   0:	8b1f03ea 	add	x10, xzr, xzr
+
+0000000000000004 <loop>:
+   4:	f8400001 	ldur	x1, [x0]
+   8:	8b010042 	add	x2, x2, x1
+   c:	91002000 	add	x0, x0, #0x8
+  10:	9100054a 	add	x10, x10, #0x1
+  14:	f101915f 	cmp	x10, #0x64
+  18:	54ffff6b 	b.lt	4 <loop>  // b.tstop
+
+000000000000001c <infloop>:
+  1c:	14000000 	b	1c <infloop>
+
+Disassembly of section .data:
+
+0000000000000020 <f>:
+  20:	00000001 	udf	#1
+  24:	00000000 	udf	#0
+
+0000000000000028 <g>:
+  28:	00000002 	udf	#2
+  2c:	00000000 	udf	#0
+
+0000000000000030 <h>:
+  30:	00000003 	udf	#3
+  34:	00000000 	udf	#0
+
+0000000000000038 <i>:
+  38:	00000004 	udf	#4
+  3c:	00000000 	udf	#0
+
+0000000000000040 <j>:
+  40:	00000005 	udf	#5
+  44:	00000000 	udf	#0
+
+Disassembly of section .debug_line:
+
+0000000000000000 <.debug_line>:
+   0:	0000003b 	udf	#59
+   4:	001d0003 	.inst	0x001d0003 ; undefined
+   8:	01040000 	.inst	0x01040000 ; undefined
+   c:	000d0efb 	.inst	0x000d0efb ; undefined
+  10:	01010101 	.inst	0x01010101 ; undefined
+  14:	01000000 	.inst	0x01000000 ; undefined
+  18:	00010000 	.inst	0x00010000 ; undefined
+  1c:	6e69616d 	rsubhn2	v13.8h, v11.4s, v9.4s
+  20:	0000732e 	udf	#29486
+  24:	00000000 	udf	#0
+  28:	00000209 	udf	#521
+  2c:	00000000 	udf	#0
+  30:	211a0000 	.inst	0x211a0000 ; undefined
+  34:	21212121 	.inst	0x21212121 ; undefined
+  38:	01022221 	.inst	0x01022221 ; undefined
+  3c:	Address 0x3c is out of bounds.
+
+
+Disassembly of section .debug_info:
+
+0000000000000000 <.debug_info>:
+   0:	0000002a 	udf	#42
+   4:	00000002 	udf	#2
+   8:	01080000 	.inst	0x01080000 ; undefined
+	...
+  18:	00000020 	udf	#32
+	...
+  24:	00000007 	udf	#7
+  28:	00000046 	udf	#70
+  2c:	Address 0x2c is out of bounds.
+
+
+Disassembly of section .debug_abbrev:
+
+0000000000000000 <.debug_abbrev>:
+   0:	10001101 	adr	x1, 220 <j+0x1e0>
+   4:	12011106 	and	w6, w8, #0x8000000f
+   8:	1b0e0301 	madd	w1, w24, w14, w0
+   c:	130e250e 	sbfiz	w14, w8, #18, #10
+  10:	00000005 	udf	#5
+
+Disassembly of section .debug_aranges:
+
+0000000000000000 <.debug_aranges>:
+   0:	0000002c 	udf	#44
+   4:	00000002 	udf	#2
+   8:	00080000 	.inst	0x00080000 ; undefined
+	...
+  18:	00000020 	udf	#32
+	...
+
+Disassembly of section .debug_str:
+
+0000000000000000 <.debug_str>:
+   0:	6e69616d 	rsubhn2	v13.8h, v11.4s, v9.4s
+   4:	2f00732e 	.inst	0x2f00732e ; undefined
+   8:	656d6f68 	fnmls	z8.h, p3/m, z27.h, z13.h
+   c:	6572672f 	fnmls	z15.h, p1/m, z25.h, z18.h
+  10:	69766f67 	ldpsw	x7, x27, [x27, #-80]
+  14:	6472616c 	.inst	0x6472616c ; undefined
+  18:	6f442f6f 	.inst	0x6f442f6f ; undefined
+  1c:	656d7563 	fnmls	z3.h, p5/m, z11.h, z13.h
+  20:	2f73746e 	.inst	0x2f73746e ; undefined
+  24:	414d6146 	.inst	0x414d6146 ; undefined
+  28:	65532f46 	fcmne	p6.h, p3/z, z26.h, #0.0
+  2c:	646e7567 	.inst	0x646e7567 ; undefined
+  30:	724f2f6f 	.inst	0x724f2f6f ; undefined
+  34:	6d432d67 	ldp	d7, d11, [x11, #48]
+  38:	454c2f70 	.inst	0x454c2f70 ; undefined
+  3c:	2f387647 	uqshl	v7.2s, v18.2s, #24
+  40:	6a453750 	ands	w16, w26, w5, lsr #13
+  44:	4e470035 	.inst	0x4e470035 ; undefined
+  48:	53412055 	.inst	0x53412055 ; undefined
+  4c:	342e3220 	cbz	w0, 5c690 <j+0x5c650>
+  50:	Address 0x50 is out of bounds.
+
