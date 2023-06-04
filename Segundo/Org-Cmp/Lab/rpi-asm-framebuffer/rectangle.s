@@ -14,10 +14,10 @@ rectangle:
   stur x2, [sp,16]
   stur x1, [sp, 8]
   stur x0, [sp, 0]
-  mov x4, x1
+  mov x4, x1   
   mov x5, x2
-  bl topixel // x3 = (x11, x22) en bits
-  mov x0, x3
+  bl topixel // x23 = (x11, x22) en bits
+  mov x0, x23
 
 loop1:
 	mov x1, x4         // X Size
@@ -30,8 +30,8 @@ loop0:
   add x22, x22, 1 // x22++, le sumo uno a la posicion y
                   // para pintar una linea debajo de la
                   // que acabo de pintar
-  bl topixel      // x3 = nueva posicion
-  mov x0, x3
+  bl topixel      // x23 = nueva posicion
+  mov x0, x23
 	cbnz x2,loop1  // Si no es la última fila, salto
 
   ldur lr, [sp,56]

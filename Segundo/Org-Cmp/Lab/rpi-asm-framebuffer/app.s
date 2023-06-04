@@ -40,26 +40,30 @@ loop0:
   mov x11, 200
   mov x22, 200
   bl topixel
-  stur w10, [x3]
-  
-  //Checkeando rectangle con topixel
-  //(x11, x22) coordenadas donde empieza el cuadrado
+//  stur w10, [x23]
+ // 
+ // //Checkeando rectangle con topixel
+ // //(x11, x22) coordenadas donde empieza el cuadrado
   //x1 X size
   //x2 Y size
   mov x1, 100
   mov x2, 100
   mov x11, 10
   mov x22, 10
-  bl rectangle
+//  bl rectangle
 
 
   //Checkeando diagonal line
   // en dline (x1, x2) es el punto de inicio
-  // (x11, x22) el punto final
-  mov x1, 200
-  mov x2, 200
-  mov x11, 221 
-  mov x22, 440
+  // (x3, x4) el punto final
+  // Necesitamos respetar lo siguiente
+  //x1 < x3 => x2 <= x4
+  // Si lo pensamos como cuadrantes, puede pintar los cuadrantes
+  // 3 y 4
+  mov x1, 320
+  mov x2, 240
+  mov x3, 330
+  mov x4, 440 
 
   bl dline
 
@@ -73,17 +77,24 @@ loop0:
 	// Setea gpios 0 - 9 como lectura
 	str wzr, [x9, GPIO_GPFSEL0]
 
+InfLoop:
 	// Lee el estado de los GPIO 0 - 31
-	ldr w10, [x9, GPIO_GPLEV0]
+	ldr w13, [x9, GPIO_GPLEV0]
+  ldr w14, [x9, GPIO_GPLEV0]
 
   
 
-	// And bit a bit mantiene el resultado del bit 2 en w10 (notar 0b... es binario)
+	// And bit a bit mantiene el resultdo del bit 2 en w10 (notar 0b... es binario)
 	// al inmediato se lo refiere como "máscara" en este caso:
 	// - Al hacer AND revela el estado del bit 2
 	// - Al hacer OR "setea" el bit 2 en 1
 	// - Al hacer AND con el complemento "limpia" el bit 2 (setea el bit 2 en 0)
-	and w11, w10, 0b00000010
+	and w13, w13, 0b00000010
+ // 0b00000100 == s
+ // 0b00001000 == d
+ // 0b00010000 == esp
+  
+	and w14, w14, 0b00100000
 
 	// si w11 es 0 entonces el GPIO 1 estaba liberado
 	// de lo contrario será distinto de 0, (en este caso particular 2)
@@ -92,5 +103,16 @@ loop0:
 	//---------------------------------------------------------------
 	// Infinite Loop
 
-InfLoop:
+  mov x1, 0
+  mov x2, 0
+  mov x3, 640
+  mov x4, 480 
+  cbnz w13, dline
+  mov x1, 0
+  mov x2, 0
+  mov x3, 340
+  mov x4, 210 
+  cbnz w14, dline
+
+
 	b InfLoop
